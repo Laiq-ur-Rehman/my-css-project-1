@@ -32,12 +32,11 @@
             margin-bottom: 1em;
         }
         .navbarlist{
-            display: flex;
-            justify-content: space-around;
-            margin: 0px;
-            padding: 0px;
             list-style: none;
             font-size: 0.875rem;
+        }
+        .navbarlistitem{
+            display: inline-block;
         }
         .navbarlistitem>a{
             text-decoration: none;
@@ -115,8 +114,23 @@
             margin: 0.5rem;
             padding: 0.25rem;
         }
+        .login:hover{
+            background-color: var(--dark-color);
+            color: var(--yellow-color);
+            transition: all 0.5s;
+            cursor: pointer;
+        }
         .signup{
             color: var(--white-color);
+            text-align: center;
+        }
+        .signup>a:hover{
+            text-decoration: none;
+            display: inline-block;
+            color: var(--white-color);
+            background-color: var(--fade-color);
+            padding: 0.25rem;
+            transition: all 0.5s;
         }
         .action{
             width: 100%;
@@ -157,6 +171,12 @@
             border-radius: 10px;
             font-weight: bolder;
             font-size: 1.5rem;
+        }
+        button:hover{
+            background-color: var(--dark-color);
+            color: var(--yellow-color);
+            transition: all 0.5s;
+            cursor: pointer;
         }
         @media (min-width:530px){
             body{
@@ -229,11 +249,12 @@
             .main{
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
+                gap: 0.25rem;
             }
             .signin{
                 grid-column: 3 / 4;
                 width: 100%;
-                padding: 0.5rem;
+                padding: 0rem;
             }
             .user{     
                 flex-direction: column;
@@ -265,6 +286,7 @@
             .main{
                 grid-column: span 5;
                 display: grid;
+                gap: 0.25rem;
                 grid-template-columns: repeat(3, 1fr);
             }
             .main-text{
