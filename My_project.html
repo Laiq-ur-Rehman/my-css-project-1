@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+    <Style>
+        *{
+            box-sizing: border-box;
+        }
+        :root{
+            --white-color: #FDFFFD;
+            --blue-color: #4F4BFB;
+            --yellow-color: #FEC402;
+            --fade-color: #141C25;
+            --dark-color: #141C25;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(Images/fotis-fotopoulos-7_r85l4eht8-unsplash.jpg);
+            background-size: auto;
+            background-repeat: no-repeat;
+        }
+        header{
+            text-align: center;
+            color: var(--white-color);
+            border-bottom: 1px solid var(--white-color);
+        }
+        .navbarmenu{
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+        .navbarlist{
+            display: flex;
+            justify-content: space-around;
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            font-size: 0.875rem;
+        }
+        .navbarlistitem>a{
+            text-decoration: none;
+            color: white;
+        }
+        .navbarlistitem:hover{
+            background-color: var(--yellow-color);
+            transform: scale(1.1);
+            transition: all 0.5s;
+        }
+        .navbarlistitem>a:hover{
+            color: var(--dark-color);
+        }
+        .button{
+            display: inline-block;
+            background-color: var(--blue-color);
+            font-size: 1rem;
+            color: var(--white-color);
+            border-radius: 10px;
+            padding: 0.5rem;
+            margin: 0.5rem;
+            position: relative; 
+            transition: all 0.5s; 
+        }
+        .button::after{
+            content: '';
+            position: absolute;
+            background-color: var(--white-color);
+            height: 100%;
+            width: 0%;
+            top: 0;
+            left: 0;
+            border-radius: 10px;
+            transition: all 0.5s;
+            z-index: -1;
+        }
+        .button:hover{
+            color: var(--blue-color);
+            background-color: transparent;
+            -webkit-transform: scale(1.1);
+            cursor: pointer;
+        }
+        .button:hover::after{
+            width: 100%;
+        }
+        
+        .main-text{
+            font-size: 1.5rem;
+            color: var(--yellow-color);
+            margin-bottom: 0rem;
+        }
+        .motive{
+            color: var(--white-color);
+            margin-top:0rem ;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .signin{
+            width: fit-content;
+            background-color:rgba(20, 28, 37, 0.5);
+            width: 100%;
+            padding: 0.5rem;
+            height: fit-content;
+        }
+        .user{
+            display: flex;
+            flex-direction: column;
+            justify-content:space-between ;
+        }
+        label{
+            color: var(--white-color);
+            padding: 0.5rem ;
+        }
+        input{
+            margin: 0.5rem;
+            padding: 0.25rem;
+        }
+        .signup{
+            color: var(--white-color);
+        }
+        .action{
+            width: 100%;
+            height: fit-content;
+            background-color: rgba(20, 28, 37, 0.5);
+        }
+        .action-heading{
+            text-align: center;
+            color: var(--white-color);
+            padding-top: 0.5rem;
+        }
+        .option{
+            text-align: center;
+        }
+        #select-model{
+            background-color: var(--yellow-color);
+            color: var(--dark-color);
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            margin: 0.5rem;
+            margin-top: 0rem;
+        }
+        #select-brand{
+            background-color: var(--yellow-color);
+            color: var(--dark-color);
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            margin: 0.5rem;
+            margin-top: 0rem;
+        }
+        .Go{
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+        button{
+            width: 100%;
+            background-color: var(--yellow-color);
+            border-radius: 10px;
+            font-weight: bolder;
+            font-size: 1.5rem;
+        }
+        @media (min-width:530px){
+            body{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            header{
+                grid-column: span 3;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .nav{
+                grid-column: span 2;
+            }
+            .navbarmenu{
+                grid-row: 2 / 3;
+            }
+            .action-button{
+                grid-column: 2 / 3;
+                grid-row: 1 / 2;
+                justify-items: end;
+                align-items: center;
+            }
+            .btn{
+                background-color: var(--blue-color);
+                border-radius:10px;
+                width: 80%;
+                margin: 0.15rem;
+                padding: 0.25rem;
+            }
+            .main{
+                grid-column: span 3;
+                padding: 1rem;
+            }
+            .user{
+                flex-direction: column;
+            }
+            .Go{
+                width: 50%;
+                text-align: center;
+                margin: auto;
+            }
+        }
+        @media (min-width:800px){
+            .btn{
+                width: 40%;
+            }
+            .nav{
+                padding-bottom: 2px;
+            }
+            .navbarlist{
+                justify-content: center;
+            }
+            .navbarlistitem{
+                padding: 0.5rem;
+                padding-bottom: 2px;
+            }
+            .main-text{
+                font-size: 2rem;
+                grid-column: span 2;
+            }
+            .motive{
+                font-size: 4rem;
+                grid-column: span 2;
+            }
+            .action-heading{
+                font-size: 2rem;
+            }
+            .main{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .signin{
+                grid-column: 3 / 4;
+                width: 100%;
+                padding: 0.5rem;
+            }
+            .user{     
+                flex-direction: column;
+            }
+            .action{
+                grid-column: span 2;
+            }
+        }
+        
+        @media (min-width:1000px){
+            body{
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+            }
+            header{
+                grid-column: span 5;
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+            }
+            .action-button{
+                grid-column: 5 / 7;
+                padding: 0px;
+                display: flex;
+                justify-content: end;
+            }
+            .nav{
+                grid-column: 2 / 5;
+            }
+            .main{
+                grid-column: span 5;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .main-text{
+                grid-column: span 2;
+                font-size: 3rem;
+            }
+            .motive{
+                grid-column: span 2;
+                font-size: 5rem;
+            }
+            .signin{
+                grid-column: 3 / 4;
+                width: 100%;
+                padding: 0.5rem;
+            }
+            .user{     
+                flex-direction: column;
+            }
+            .action{
+                grid-column: span 2;
+            }
+        }
+
+    </Style>
+</head>
+<body>
+    <Header>
+        <div class="header_image">
+            <img src="Images/Pak Taxi.png" alt="Pak Taxi">
+        </div>
+        <div class="nav">
+            <nav class="navbarmenu">
+                <ul class="navbarlist">
+                    <li class="navbarlistitem"><a href="">Home</a></li>
+                    <li class="navbarlistitem"><a href="">Blogs</a></li>
+                    <li class="navbarlistitem"><a href="">Customer Support</a></li>
+                    <li class="navbarlistitem"><a href="">How to Use</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="action-button">
+            <a class="button"><i class="fa-regular fa-circle-down"></i>Download</a>
+            <a class="button"><i class="fa-solid fa-user"></i>My Account</a>
+        </div>
+    </Header>
+    <div class="main">
+        <p class="main-text">It doesn’t matter night or day, Our priority is</p>
+        <p class="motive">Safe & fast trip in the town!</p>
+        <div class="signin">
+            <form action="">
+                <div class="user"><label>User name or email address</label> <input type="text/email" name="name" value="" placeholder="Enter your name"/></div>
+                <div class="user"><label>Password</label> <input type="password" placeholder="Enter your password"/></div>
+                <button class="login">Login</button>
+                <p class="signup">Do you already have an account?<a href="#">Singup</a></p>
+            </form>
+        </div>
+        <div class="action">
+            <h3 class="action-heading">Select Your Taxi</h3>
+            <div class="option">
+                <select name="Select Modal" id="select-model">
+                    <option>Select Model</option>
+                    <option>Corolla</option>
+                    <option>Civic</option>
+                    <option>Alsvin</option>
+                    <option>Alto</option>
+                    <option>Cultus</option>
+                    <option>Tuscon</option>
+                    <option>Saga</option>
+                </select>
+                <select name="Select Brand" id="select-brand">
+                    <option>Select Brand</option>
+                    <option>Toyota</option>
+                    <option>Honda</option>
+                    <option>Changan</option>
+                    <option>Suzuki</option>
+                    <option>Kia</option>
+                    <option>Hundai</option>
+                    <option>Proton</option>
+                </select>
+            </div>
+            <div class="Go">
+                <button>GO</button>
+            </div>        
+        </div>
+    </div>
+</body>
+</html>
